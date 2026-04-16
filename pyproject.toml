@@ -1,0 +1,53 @@
+[project]
+name = "mr-transcript"
+version = "0.1.0"
+description = "A simple wrapper for youtube-transcript-api to get YouTube video transcripts with ease."
+readme = "README.md"
+requires-python = ">=3.8,<3.15"
+license = {text = "MIT"}
+keywords = [
+    "youtube",
+    "transcript",
+    "youtube-transcript-api",
+    "subtitles",
+    "api-wrapper",
+    "youtube-api",
+    "automation",
+    "video-transcription",
+    "speech-to-text",
+    "video-analysis",
+]
+authors = [
+    { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
+]
+dependencies = [
+    "youtube-transcript-api>=1.2.4",
+]
+
+[dependency-groups]
+dev = [
+    "black",
+    "isort",
+    "pre_commit",
+    "twine",
+]
+
+[project.urls]
+"Homepage" = "https://www.bogdanovych.org"
+"Repository" = "https://github.com/BogdanovychA/mr-transcript"
+"Bug Tracker" = "https://github.com/BogdanovychA/mr-transcript/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+skip-string-normalization = true
+
+[tool.isort]
+profile = "black"
