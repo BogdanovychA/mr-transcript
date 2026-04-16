@@ -17,6 +17,11 @@ keywords = [
     "speech-to-text",
     "video-analysis",
 ]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 authors = [
     { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
 ]
