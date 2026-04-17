@@ -43,6 +43,15 @@ if "en" in languages:
     print(text[:500])  # Виведе перші 500 символів
 ```
 
+## Скіл для ШІ-агентів
+
+Цей репозиторій містить спеціалізований скіл (skill) для ШІ-агентів (наприклад, Gemini CLI). Він допомагає агенту надавати експертну допомогу у написанні Python-коду, парсингу URL та інтеграції цієї бібліотеки у ваші проєкти.
+
+Щоб встановити скіл, виконайте:
+```bash
+npx skills add BogdanovychA/mr-transcript --skill "mr-transcript"
+```
+
 ## Опис функцій
 
 ### `get_transcript(video_id, language, timecodes=False)`

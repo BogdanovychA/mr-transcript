@@ -43,6 +43,15 @@ if "en" in languages:
     print(text[:500])  # Prints the first 500 characters
 ```
 
+## AI Agent Skill
+
+This repository includes a specialized skill for AI agents (like Gemini CLI). It helps the agent provide expert assistance with Python coding, URL parsing, and integrating this library into your projects.
+
+To install the skill, run:
+```bash
+npx skills add BogdanovychA/mr-transcript --skill "mr-transcript"
+```
+
 ## Function Descriptions
 
 ### `get_transcript(video_id, language, timecodes=False)`
