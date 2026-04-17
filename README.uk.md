@@ -1,5 +1,7 @@
 # mr-transcript
 
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/mr-transcript?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/mr-transcript)
+
 Зручна обгортка над бібліотекою `youtube-transcript-api` для швидкого та надійного отримання розшифровок (субтитрів) з відео на YouTube.
 
 ## Основні можливості
@@ -55,7 +57,7 @@ if "en" in languages:
 
 ## Вимоги
 
-*   Python >= 3.8
+*   Python >= 3.10
 *   [youtube-transcript-api](https://github.com/jdepoix/youtube-transcript-api) >= 1.2.4
 
 ## Ліцензія

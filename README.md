@@ -1,5 +1,7 @@
 # mr-transcript
 
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/mr-transcript?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/mr-transcript)
+
 A convenient wrapper for the `youtube-transcript-api` library designed to retrieve YouTube video transcripts quickly and reliably.
 
 ## Key Features
@@ -55,7 +57,7 @@ Returns a dictionary of all available languages for the video.
 
 ## Requirements
 
-*   Python >= 3.8
+*   Python >= 3.10
 *   [youtube-transcript-api](https://github.com/jdepoix/youtube-transcript-api) >= 1.2.4
 
 ## License
