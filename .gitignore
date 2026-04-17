@@ -39,3 +39,15 @@ Thumbs.db
 .env
 .pypirc
 auth.json
+
+#
+**/*.tmp
+
+# Clouds
+**/.stfolder/
+**/.stversions/
+**/.stignore
+**/.syncthing.*.tmp
+**/~syncthing~*.tmp
+**/*sync-conflict*
+**/*conflicted*
