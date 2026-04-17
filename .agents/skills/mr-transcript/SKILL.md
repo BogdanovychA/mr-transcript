@@ -5,7 +5,7 @@ version: 1.0.0
 repo: https://github.com/BogdanovychA/mr-transcript
 ---
 
-# mr-transcript: Python Developer Assistant (v1.0.0)
+# Mr. Transcript: Python Developer Assistant
 
 This skill specializes in helping developers integrate YouTube transcript retrieval functionality into their Python applications.
 

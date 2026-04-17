@@ -1,6 +1,6 @@
-# mr-transcript
+# Mr. Transcript
 
-[![DOI](https://zenodo.org/badge/1212408609.svg)](https://doi.org/10.5281/zenodo.19630758) [![PyPI Downloads](https://static.pepy.tech/personalized-badge/mr-transcript?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/mr-transcript)
+[![DOI](https://zenodo.org/badge/1212408609.svg)](https://doi.org/10.5281/zenodo.19630758) [![PyPI Downloads](https://static.pepy.tech/personalized-badge/mr-transcript?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/mr-transcript) ![PyPI - License](https://img.shields.io/pypi/l/mr-transcript?logoColor=grey&color=blue) ![PyPI - Version](https://img.shields.io/pypi/v/mr-transcript?logoColor=grey&color=blue)
 
 A convenient wrapper for the `youtube-transcript-api` library designed to retrieve YouTube video transcripts quickly and reliably.
 
