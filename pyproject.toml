@@ -1,9 +1,9 @@
 [project]
 name = "mr-transcript"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple wrapper for youtube-transcript-api to get YouTube video transcripts with ease."
 readme = "README.md"
-requires-python = ">=3.8,<3.15"
+requires-python = ">=3.10,<3.15"
 license = {text = "MIT"}
 keywords = [
     "youtube",
@@ -51,7 +51,7 @@ where = ["src"]
 
 [tool.black]
 line-length = 88
-target-version = ['py312']
+target-version = ['py310']
 skip-string-normalization = true
 
 [tool.isort]
