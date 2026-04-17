@@ -76,7 +76,11 @@ def get_transcript_internal(
 def get_video_id(url: str) -> str:
     """Extracts the video ID from YouTube links of various formats."""
 
-    regex = r"(?:v=|\/|be\/|shorts\/|embed\/)([0-9A-Za-z_-]{10,12})(?:[&?\s]|$)"
+    regex = (
+        r"^(?:https?://)?(?:www\.|m\.)?"
+        r"(?:youtube\.com/(?:watch\?(?:.*&)?v=|embed/|shorts/)|youtu\.be/)"
+        r"([0-9A-Za-z_-]{11})(?:[?&/#].*|$)"
+    )
     match = re.search(regex, url)
     if match:
         return match.group(1)
