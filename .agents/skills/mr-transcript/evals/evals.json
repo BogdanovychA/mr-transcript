@@ -1,0 +1,23 @@
+{
+  "skill_name": "mr-transcript",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to write a Python function that takes a list of YouTube links and saves the transcripts for each video into separate .txt files. Use mr-transcript.",
+      "expected_output": "The agent must write professional Python code iterating over the list, using get_transcript, and explaining the benefits of this library. The response must be in English (matching the user's language).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "How do I replace youtube-transcript-api with mr-transcript in my existing project? Show me a refactoring example.",
+      "expected_output": "The agent should demonstrate code simplification, specifically regarding URL parsing. The response must be in English (matching the user's language).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write a Python script to get a transcript with timecodes for the video https://youtu.be/dQw4w9WgXcQ in Ukrainian.",
+      "expected_output": "The agent should provide a script using get_transcript(url, language='uk', timecodes=True). The response must be in English as the prompt is in English, but it must correctly handle the 'Ukrainian' language requirement for the transcript itself.",
+      "files": []
+    }
+  ]
+}
