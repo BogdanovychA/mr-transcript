@@ -40,6 +40,7 @@ dev = [
 [project.urls]
 "Homepage" = "https://www.bogdanovych.org"
 "Repository" = "https://github.com/BogdanovychA/mr-transcript"
+"DOI" = "https://doi.org/10.5281/zenodo.19630758"
 "Bug Tracker" = "https://github.com/BogdanovychA/mr-transcript/issues"
 
 [build-system]
