@@ -5,6 +5,11 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
+logging.basicConfig(
+    level=logging.ERROR,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+)
+
 
 def get_remote_content(repo_url: str) -> str | None:
     """Fetches content from a remote URL."""
@@ -113,8 +118,15 @@ def main() -> None:
 
     try:
         remote_version = remote_data["version"]
+        repository = remote_data["repository"]
+        skill_name = remote_data["name"]
     except KeyError:
         print("Could not retrieve remote data from SKILL.md.")
+        return
+
+    owner, repo = get_owner_and_repo(repository)
+    if not owner or not repo:
+        print(f"Could not parse repository URL: {repository}")
         return
 
     if is_newer_version(remote_version, local_version):
