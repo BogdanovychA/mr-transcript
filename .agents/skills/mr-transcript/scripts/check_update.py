@@ -1,6 +1,9 @@
+import logging
 import os
 import io
 import urllib.request
+
+logger = logging.getLogger(__name__)
 
 def get_remote_content(repo_url: str):
     try:
@@ -8,8 +11,8 @@ def get_remote_content(repo_url: str):
             content = response.read().decode('utf-8')
             return content
     except Exception as e:
-        print(f"Error checking for updates: {e}")
-    return None
+        logger.error(f"Error getting remote content: {e}")
+        return None
 
 
 def get_local_content():
@@ -18,13 +21,12 @@ def get_local_content():
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         skill_path = os.path.join(base_dir, "SKILL.md")
 
-        if os.path.exists(skill_path):
-            with open(skill_path, 'r', encoding='utf-8') as f:
+        with open(skill_path, 'r', encoding='utf-8') as f:
+            return f.read()
 
-                return f.read()
     except Exception as e:
-        print(f"Error reading local content: {e}")
-    return None
+        logger.error(f"Error getting local content: {e}")
+        return None
 
 def read_source(source: io.StringIO):
 
@@ -35,7 +37,9 @@ def read_source(source: io.StringIO):
         return result
 
     for line in source:
+
         line = line.strip()
+
         if line == "---":
             break
 
