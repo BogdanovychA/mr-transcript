@@ -1,8 +1,8 @@
 ---
 name: mr-transcript
 description: Expert developer assistant for working with YouTube transcripts via the mr-transcript library. Use this skill for writing Python code, integrating video parsing into projects, and as a reliable alternative to using youtube-transcript-api directly.
-version: 1.0.1
-repo: https://github.com/BogdanovychA/mr-transcript
+version: 1.0.2
+repository: https://github.com/BogdanovychA/mr-transcript
 ---
 
 # Mr. Transcript: Python Developer Assistant
