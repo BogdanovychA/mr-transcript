@@ -1,9 +1,10 @@
+import io
 import logging
 import os
-import io
 import urllib.request
 
 logger = logging.getLogger(__name__)
+
 
 def get_remote_content(repo_url: str):
     try:
@@ -28,6 +29,7 @@ def get_local_content():
         logger.error(f"Error getting local content: {e}")
         return None
 
+
 def read_source(source: io.StringIO):
 
     result = {}
@@ -45,11 +47,12 @@ def read_source(source: io.StringIO):
 
         if ":" in line:
             key, value = line.split(":", 1)
-            key=key.strip()
+            key = key.strip()
             value = value.strip()
             result[key] = value
 
     return result
+
 
 def get_owner_and_repo(repository: str):
 
@@ -58,6 +61,7 @@ def get_owner_and_repo(repository: str):
     repo = repo.strip("/")
 
     return owner, repo
+
 
 def main():
 
