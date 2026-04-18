@@ -64,9 +64,13 @@ def main():
         print("Could not retrieve local data from SKILL.md.")
         return
 
-    local_version = local_data["version"]
-    repository = local_data["repository"]
-    skill_name = local_data["name"]
+    try:
+        local_version = local_data["version"]
+        repository = local_data["repository"]
+        skill_name = local_data["name"]
+    except KeyError:
+        print("Could not retrieve local data from SKILL.md.")
+        return
 
     owner, repo = get_owner_and_repo(repository)
 
@@ -79,7 +83,11 @@ def main():
         print("Could not retrieve remote data from SKILL.md.")
         return
 
-    remote_version = remote_data["version"]
+    try:
+        remote_version = remote_data["version"]
+    except KeyError:
+        print("Could not retrieve remote data from SKILL.md.")
+        return
 
     if remote_version > local_version:
         print(
