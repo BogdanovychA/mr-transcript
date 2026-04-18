@@ -57,8 +57,7 @@ def read_source(source: io.StringIO):
 def get_owner_and_repo(repository: str):
 
     suffix = repository.removeprefix("https://github.com/")
-    owner, repo = suffix.split("/", 1)
-    repo = repo.strip("/")
+    owner, repo, *_ = suffix.split("/")
 
     return owner, repo
 
