@@ -6,7 +6,8 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 
-def get_remote_content(repo_url: str):
+def get_remote_content(repo_url: str) -> str | None:
+    """Fetches content from a remote URL."""
     try:
         with urllib.request.urlopen(repo_url, timeout=5) as response:
             content = response.read().decode('utf-8')
@@ -16,8 +17,8 @@ def get_remote_content(repo_url: str):
         return None
 
 
-def get_local_content():
-
+def get_local_content() -> str | None:
+    """Reads content from the local SKILL.md file."""
     try:
         base_dir = Path(__file__).resolve().parent.parent
         skill_path = base_dir / "SKILL.md"
@@ -30,8 +31,8 @@ def get_local_content():
         return None
 
 
-def read_source(source: io.StringIO):
-
+def read_source(source: io.StringIO) -> dict[str, str]:
+    """Parses metadata header from a Markdown source."""
     result = {}
     first_line = next(source, None)
 
@@ -42,25 +43,20 @@ def read_source(source: io.StringIO):
         return result
 
     for line in source:
-
         line = line.strip()
-
         if line == "---":
             break
 
         if ":" in line:
             key, value = line.split(":", 1)
-            key = key.strip()
-            value = value.strip()
-            result[key] = value
+            result[key.strip()] = value.strip()
 
     return result
 
 
-def get_owner_and_repo(repository: str):
-
+def get_owner_and_repo(repository: str) -> tuple[str | None, str | None]:
+    """Extracts owner and repository name from a GitHub URL."""
     suffix = repository.removeprefix("https://github.com/")
-
     parts = suffix.split("/")
     if len(parts) >= 2:
         return parts[0], parts[1]
@@ -68,17 +64,17 @@ def get_owner_and_repo(repository: str):
 
 
 def is_newer_version(remote_v: str, local_v: str) -> bool:
-
+    """Compares two semantic version strings."""
     try:
         remote_parts = [int(p) for p in remote_v.split('.')]
         local_parts = [int(p) for p in local_v.split('.')]
         return remote_parts > local_parts
-
     except (ValueError, AttributeError):
         return remote_v > local_v
 
 
-def main():
+def main() -> None:
+    """Main function to check for skill updates."""
 
     local_content = get_local_content()
     if not local_content:
@@ -86,7 +82,6 @@ def main():
         return
 
     local_data = read_source(io.StringIO(local_content))
-
     if not local_data:
         print("Could not retrieve local data from SKILL.md.")
         return
@@ -112,7 +107,6 @@ def main():
         return
 
     remote_data = read_source(io.StringIO(remote_content))
-
     if not remote_data:
         print("Could not retrieve remote data from SKILL.md.")
         return
