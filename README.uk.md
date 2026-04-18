@@ -49,7 +49,7 @@ if "en" in languages:
 
 Щоб встановити скіл, виконайте:
 ```bash
-npx skills add BogdanovychA/mr-transcript --skill "mr-transcript"
+npx skills add BogdanovychA/mr-transcript --skill mr-transcript
 ```
 
 ## Опис функцій

@@ -58,7 +58,7 @@ def main():
             f"A new version of the skill is available: {remote_version} (current: {local_version})."
         )
         print(
-            f'Please update the skill using the command: npx skills add BogdanovychA/mr-transcript --skill "mr-transcript"'
+            f"Please update the skill using the command: npx skills add BogdanovychA/mr-transcript --skill mr-transcript"
         )
     else:
         print(f"Skill is up to date (version {local_version}).")
