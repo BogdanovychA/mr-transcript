@@ -1,7 +1,7 @@
 import io
 import logging
-import os
 import urllib.request
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -19,8 +19,8 @@ def get_remote_content(repo_url: str):
 def get_local_content():
 
     try:
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        skill_path = os.path.join(base_dir, "SKILL.md")
+        base_dir = Path(__file__).resolve().parent.parent
+        skill_path = base_dir / "SKILL.md"
 
         with open(skill_path, 'r', encoding='utf-8') as f:
             return f.read()
@@ -34,6 +34,9 @@ def read_source(source: io.StringIO):
 
     result = {}
     first_line = next(source, None)
+
+    while first_line is not None and not first_line.strip():
+        first_line = next(source, None)
 
     if first_line is None or first_line.strip() != "---":
         return result
@@ -57,14 +60,31 @@ def read_source(source: io.StringIO):
 def get_owner_and_repo(repository: str):
 
     suffix = repository.removeprefix("https://github.com/")
-    owner, repo, *_ = suffix.split("/")
 
-    return owner, repo
+    parts = suffix.split("/")
+    if len(parts) >= 2:
+        return parts[0], parts[1]
+    return None, None
+
+
+def is_newer_version(remote_v: str, local_v: str) -> bool:
+
+    try:
+        remote_parts = [int(p) for p in remote_v.split('.')]
+        local_parts = [int(p) for p in local_v.split('.')]
+        return remote_parts > local_parts
+
+    except (ValueError, AttributeError):
+        return remote_v > local_v
 
 
 def main():
 
     local_content = get_local_content()
+    if not local_content:
+        print("Could not read local SKILL.md.")
+        return
+
     local_data = read_source(io.StringIO(local_content))
 
     if not local_data:
@@ -80,10 +100,17 @@ def main():
         return
 
     owner, repo = get_owner_and_repo(repository)
+    if not owner or not repo:
+        print(f"Could not parse repository URL: {repository}")
+        return
 
     repo_raw = f"https://raw.githubusercontent.com/{owner}/{repo}/main/.agents/skills/{skill_name}/SKILL.md"
 
     remote_content = get_remote_content(repo_raw)
+    if not remote_content:
+        print("Could not retrieve remote SKILL.md. Check your internet connection.")
+        return
+
     remote_data = read_source(io.StringIO(remote_content))
 
     if not remote_data:
@@ -96,7 +123,7 @@ def main():
         print("Could not retrieve remote data from SKILL.md.")
         return
 
-    if remote_version > local_version:
+    if is_newer_version(remote_version, local_version):
         print(
             f"A new version of the skill is available: {remote_version} (current: {local_version})."
         )
