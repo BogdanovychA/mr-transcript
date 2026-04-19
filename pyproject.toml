@@ -42,6 +42,7 @@ dev = [
 "Repository" = "https://github.com/BogdanovychA/mr-transcript"
 "DOI" = "https://doi.org/10.5281/zenodo.19630758"
 "Bug Tracker" = "https://github.com/BogdanovychA/mr-transcript/issues"
+"AI Agent Skill" = "https://skills.sh/bogdanovycha/mr-transcript/mr-transcript"
 
 [build-system]
 requires = ["setuptools>=61.0"]
