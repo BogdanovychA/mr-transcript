@@ -26,7 +26,7 @@ authors = [
     { name = "Andrii Bogdanovych", email = "a@bogdanovych.org" }
 ]
 dependencies = [
-    "youtube-transcript-api>=1.2.4",
+    "youtube-transcript-api>=1.1.0",
 ]
 
 [dependency-groups]
