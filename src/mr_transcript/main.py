@@ -31,7 +31,6 @@ def get_transcript(video_id: str, language: str, timecodes: bool = False) -> str
     client = YouTubeTranscriptApi()
 
     try:
-
         transcript_list = client.list(video_id)
 
         result = get_transcript_internal(

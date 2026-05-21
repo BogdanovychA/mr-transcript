@@ -58,7 +58,6 @@ def get_transcript_internal(
     txt_prefix = "Manually"
 
     try:
-
         if manually:
             transcript = transcript_list.find_manually_created_transcript([language])
         else:
