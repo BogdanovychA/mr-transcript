@@ -47,7 +47,7 @@ if "en" in languages:
 
 ## AI Agent Skill
 
-This repository includes a specialized skill for AI agents (like Gemini CLI). It helps the agent provide expert assistance with Python coding, URL parsing, and integrating this library into your projects.
+This repository includes a specialized skill for AI agents. It helps the agent provide expert assistance with Python coding, URL parsing, and integrating this library into your projects.
 
 To install the skill, run:
 ```bash
