@@ -1,0 +1,23 @@
+{
+  "skill_name": "mr-transcript",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a Python script where I need to fetch the transcript text of the YouTube video 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' with timecodes. Can you write a clean function to do this?",
+      "expected_output": "A Python script importing get_transcript from mr_transcript, calling it with the video URL directly and timecodes=True, and handling the potential empty string result.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Can you write a Python function that checks what subtitle languages are available for a given YouTube URL, and if Spanish ('es') is available, retrieves it, otherwise falls back to English ('en') or any first available language?",
+      "expected_output": "A Python function using get_languages to check available languages, choosing the appropriate language code (Spanish, English, or first available), and then calling get_transcript with that language.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I'm currently using youtube-transcript-api to get transcripts: I parse the video ID from the URL using a regex, then call YouTubeTranscriptApi.get_transcript(video_id). Can you show me how to refactor this to use mr-transcript?",
+      "expected_output": "An explanation and code sample showing how mr-transcript simplifies this by accepting the URL directly (eliminating custom regex) and handling fallback/missing subtitles without complex try-except blocks.",
+      "files": []
+    }
+  ]
+}
