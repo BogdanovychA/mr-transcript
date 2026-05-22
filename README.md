@@ -51,7 +51,7 @@ This repository includes a specialized skill for AI agents (like Gemini CLI). It
 
 To install the skill, run:
 ```bash
-npx skills add BogdanovychA/mr-transcript --skill mr-transcript
+npx skills add https://github.com/BogdanovychA/mr-transcript --skill mr-transcript
 ```
 
 ## Function Descriptions
